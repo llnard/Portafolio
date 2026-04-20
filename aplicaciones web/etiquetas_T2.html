@@ -1,113 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ejemplo tarea 1 HTML</title>
-
-    <!-- META -->
+    <title>Mi primera página</title>
     <meta charset="UTF-8">
-
-    <!-- LINK (simulado) -->
     <link rel="stylesheet" href="estilos.css">
 
-    <!-- STYLE -->
     <style>
         body {
-            font-family: Arial;
-        }
-        header, footer {
-            background: gray;
-            color: white;
-            padding: 10px;
-        }
-        section {
-            margin: 10px 0;
-        }
-        aside {
-            background: lightgray;
-            padding: 10px;
-        }
-        div {
-            background: lightblue;
-            padding: 10px;
+            font-family: 'Times New Roman', Times, serif;
         }
     </style>
+
+    <script>
+        console.log("Hola mundo");
+    </script>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <h1>Mi Página HTML</h1>
-</header>
+    <header>
+        <h1>Bienvenido a mi página</h1>
+    </header>
 
-<!-- MAIN -->
-<main>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Contacto</a>
+    </nav>
 
-    <!-- SECTION TEXTO -->
-    <section>
-        <h2>Texto</h2>
-        <p>Esto es un párrafo</p>
-    </section>
+    <main>
 
-    <!-- ENLACE -->
-    <section>
-        <h2>Enlace</h2>
-        <a href="https://google.com">Ir a Google</a>
-    </section>
+        <section>
+            <h2>Sobre mí</h2>
+            <p>Hola, me llamo Bryan Leonardo</p>
+        </section>
 
-    <!-- IMAGEN -->
-    <section>
-        <h2>Imagen</h2>
-        <img src="https://via.placeholder.com/150" alt="Imagen ejemplo">
-    </section>
-
-    <!-- AUDIO -->
-    <section>
-        <h2>Audio</h2>
-        <audio controls>
-            <source src="audio.mp3" type="audio/mpeg">
-        </audio>
-    </section>
-
-    <!-- IFRAME -->
-    <section>
-        <h2>Iframe</h2>
-        <iframe src="https://example.com" width="300" height="200"></iframe>
-    </section>
-
-    <!-- DIV -->
-    <section>
-        <h2>Div</h2>
         <div>
-            <p>Contenido dentro de un div</p>
+            <p>Esto está dentro de un div.</p>
         </div>
-    </section>
 
-    <!-- ASIDE -->
-    <aside>
-        <h3>Aside</h3>
-        <p>Contenido lateral</p>
-    </aside>
+        <img src="multimedia/nerviosilla.jpg" alt="Ejemplo de imagen">
 
-    <!-- BOTÓN -->
-    <section>
-        <h2>Botón</h2>
-        <button onclick="saludo()">Haz clic</button>
-    </section>
+        <audio controls>
+            <source src="multimedia/Me Toca Perder.mp3" type="audio/mpeg">
+        </audio>
+        
+        <iframe src="https://example.com"></iframe>
 
-</main>
+        <aside>
+            <p>Contenido extra</p>
+        </aside>
 
-<!-- FOOTER -->
-<footer>
-    <p>Pie de página</p>
-</footer>
+    </main>
 
-<!-- SCRIPT -->
-<script>
-function saludo() {
-    alert("Hola, esto es JavaScript");
-}
-</script>
+    <button>Haz clic aquí</button>
+
+    <footer>
+        <p>© 2026 Mi página</p>
+    </footer>
 
 </body>
 </html>
