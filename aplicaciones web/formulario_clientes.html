@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ingreso de Datos de Clientes</title>
+  <link rel="stylesheet" href="formulario.css" />
+  
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="badge">Sistema de Gestión</div>
+    <h1>Registro de Clientes</h1>
+    <p>Complete todos los campos requeridos para registrar un nuevo cliente.</p>
+  </header>
+
+  <!-- Card -->
+  <div class="card">
+    <form id="clientForm" novalidate>
+      <div class="form-grid">
+
+        <!-- Cédula -->
+        <div class="field">
+          <label for="cedula">Cédula <span class="req">*</span></label>
+          <input
+            type="text"
+            id="cedula"
+            name="cedula"
+            placeholder="0912345678"
+            maxlength="10"
+            pattern="\d{10}"
+            required
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Teléfono -->
+        <div class="field">
+          <label for="telefono">Teléfono <span class="req">*</span></label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="0991234567"
+            maxlength="10"
+            pattern="\d{7,10}"
+            required
+            autocomplete="tel"
+          />
+        </div>
+
+        <!-- Nombre completo -->
+        <div class="field full">
+          <label for="nombre">Nombre Completo <span class="req">*</span></label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ej. Ana María Torres Vega"
+            minlength="3"
+            required
+            autocomplete="name"
+          />
+        </div>
+
+        <!-- Dirección -->
+        <div class="field full">
+          <label for="direccion">Dirección <span class="req">*</span></label>
+          <input
+            type="text"
+            id="direccion"
+            name="direccion"
+            placeholder="Calle, número, ciudad, provincia"
+            minlength="5"
+            required
+            autocomplete="street-address"
+          />
+        </div>
+
+        <!-- Correo -->
+        <div class="field full">
+          <label for="correo">Correo Electrónico <span class="req">*</span></label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="cliente@ejemplo.com"
+            required
+            autocomplete="email"
+          />
+        </div>
+
+      </div><!-- /form-grid -->
+
+      <!-- Actions -->
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" onclick="resetForm()">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+      </div>
+
+      <!-- Toast -->
+      <div class="toast" id="toast">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span>¡Cliente registrado correctamente!</span>
+      </div>
+
+    </form>
+  </div><!-- /card -->
+
+  <p class="footer">© 2025 Sistema de Registro · Todos los derechos reservados</p>
+</div>
+
+<script>
+  const form = document.getElementById('clientForm');
+  const toast = document.getElementById('toast');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      // Trigger native validation bubbles
+      form.reportValidity();
+      return;
+    }
+    // Show success toast
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+      form.reset();
+    }, 3000);
+  });
+
+  function resetForm() {
+    form.reset();
+    toast.classList.remove('show');
+  }
+
+  // Only allow digits in cédula and teléfono
+  ['cedula','telefono'].forEach(id => {
+    document.getElementById(id).addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '');
+    });
+  });
+</script>
+
+</body>
+</html>
